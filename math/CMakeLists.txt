@@ -8,6 +8,7 @@ set(MATH_PUBLIC_INCLUDES
 		includes/MMultiplication.hpp
 		includes/Norm.hpp
 		includes/ScalarMultiplication.hpp
+		includes/Matrix.hpp
 	)
 	
 set(MATH_PRIVATE_SOURCES
@@ -15,6 +16,7 @@ set(MATH_PRIVATE_SOURCES
 		src/MMultiplication.cpp
 		src/Norm.cpp
 		src/ScalarMultiplication.cpp
+		src/Matrix.cpp
 )
 
 

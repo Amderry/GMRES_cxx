@@ -1,10 +1,14 @@
 #include "MMultiplication.hpp"
-#include <memory>
 
 namespace math
 {
 	std::unique_ptr<Float_Matrix> multiply(const Float_Matrix& first, const Float_Matrix& second)
 	{
+		if (first.n != second.m)
+		{
+			return nullptr;
+		}
+
 		auto res = std::make_unique<Float_Matrix>(first.m, second.n, std::make_unique<float[]>(first.m * second.n));
 
 		for (int i = 0; i < first.m; ++i)
@@ -23,6 +27,11 @@ namespace math
 
 	std::unique_ptr<Double_Matrix> multiply(const Double_Matrix& first, const Double_Matrix& second)
 	{
+		if (first.n != second.m)
+		{
+			return nullptr;
+		}
+
 		auto res = std::make_unique<Double_Matrix>(first.m, second.n, std::make_unique<double[]>(first.m * second.n));
 
 		for (int i = 0; i < first.m; ++i)

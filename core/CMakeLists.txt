@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.28)
 
-set(CORE_PROJECT_NAME Gmres_Core)
+set(CORE_PROJECT_NAME Bicgstab_Core)
 set(CMAKE_CXX_STANDARD 20)
 
 set(GMRES_PUBLIC_INCLUDES
-		includes/GMRES.hpp
+		includes/BiCGStab.hpp
 	)
 	
 set(GMRES_PRIVATE_SOURCES
-		src/GMRES.cpp
+		src/BiCGStab.cpp
 )
 
 add_library(${CORE_PROJECT_NAME} STATIC 

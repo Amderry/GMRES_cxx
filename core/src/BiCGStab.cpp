@@ -4,11 +4,22 @@
 #include "ScalarMultiplication.hpp"
 #include "MSub.hpp"
 #include "MSum.hpp"
+#include "Transpose.hpp"
 
 std::unique_ptr<math::Float_Matrix> bicgstab(const math::Float_Matrix& A, const math::Float_Matrix& b)
 {
-	auto x0 = std::make_unique<math::Float_Matrix>(A.m, 1, std::make_unique<float[]>(A.m));
+	auto x = std::make_unique<math::Float_Matrix>(A.m, 1, std::make_unique<float[]>(A.m));
 
-	auto r0 = math::subtract(b, *math::multiply(A, *x0));
-	return r0;
+	auto r = math::subtract(b, *math::multiply(A, *x));
+	auto r0_st = r->copy();
+	math::nonconst_transpose(*r0_st);
+	auto p = r->copy();
+
+	while (math::get_matrix_norm(*r) > 0.01)
+	{
+		float alpha = math::multiply(*r, *r0_st)->m_data[0] / math::multiply(*math::multiply(A, *p), *r0_st)->m_data[0];
+		int b = 1;
+	}
+
+	return x;
 }

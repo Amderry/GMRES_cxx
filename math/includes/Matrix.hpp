@@ -28,6 +28,8 @@ namespace math
 		Float_Matrix(Float_Matrix&&) noexcept;
 		Float_Matrix& operator=(Float_Matrix&&) noexcept;
 
+		std::unique_ptr<Float_Matrix> copy() const;
+
 		std::unique_ptr<float[]> m_data;
 		Matrix_Type m_type = Matrix_Type::M_FLOAT;
 	};
@@ -41,6 +43,8 @@ namespace math
 
 		Double_Matrix(Double_Matrix&&) noexcept;
 		Double_Matrix& operator=(Double_Matrix&&) noexcept;
+
+		std::unique_ptr<Double_Matrix> copy() const;
 
 		std::unique_ptr<double[]> m_data;
 		Matrix_Type m_type = Matrix_Type::M_DOUBLE;

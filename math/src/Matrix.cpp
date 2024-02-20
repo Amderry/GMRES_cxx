@@ -32,6 +32,14 @@ namespace math
 		return *this;
 	}
 
+	std::unique_ptr<Float_Matrix> Float_Matrix::copy() const
+	{
+		auto new_data = std::make_unique<float[]>(this->m * this->n);
+		std::copy(this->m_data.get(), this->m_data.get() + this->m * this->n, new_data.get());
+		auto new_matrix = std::make_unique<Float_Matrix>(this->m, this->n, std::move(new_data));
+		return new_matrix;
+	}
+
 	Double_Matrix::Double_Matrix(unsigned int m, unsigned int n, std::unique_ptr<double[]> data)
 		: Matrix(m, n), m_data(std::move(data))
 	{
@@ -54,5 +62,13 @@ namespace math
 		rhs.n = 0;
 		rhs.m_data = nullptr;
 		return *this;
+	}
+
+	std::unique_ptr<Double_Matrix> Double_Matrix::copy() const
+	{
+		auto new_data = std::make_unique<double[]>(this->m * this->n);
+		std::copy(this->m_data.get(), this->m_data.get() + this->m * this->n, new_data.get());
+		auto new_matrix = std::make_unique<Double_Matrix>(this->m, this->n, std::move(new_data));
+		return new_matrix;
 	}
 }

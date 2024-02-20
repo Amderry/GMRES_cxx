@@ -11,6 +11,7 @@ set(MATH_PUBLIC_INCLUDES
 		includes/Matrix.hpp
 		includes/MSum.hpp
 		includes/MSub.hpp
+		includes/Transpose.hpp
 	)
 	
 set(MATH_PRIVATE_SOURCES
@@ -21,6 +22,7 @@ set(MATH_PRIVATE_SOURCES
 		src/Matrix.cpp
 		src/MSum.cpp
 		src/MSub.cpp
+		src/Transpose.cpp
 )
 
 

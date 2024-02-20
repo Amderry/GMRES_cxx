@@ -1,4 +1,5 @@
 #include "BiCGStab.hpp"
+#include "Transpose.hpp"
 #include <iostream>
 
 int main()
@@ -22,9 +23,4 @@ int main()
 	auto b = std::make_unique<math::Float_Matrix>(2, 1, std::move(b_data));
 
 	auto solve = bicgstab(*A, *b);
-
-	for (int i = 0; i < 2; ++i)
-	{
-		std::cout << solve->m_data[i] << std::endl;
-	}
 }

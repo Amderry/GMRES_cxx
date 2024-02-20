@@ -18,7 +18,9 @@ std::unique_ptr<math::Float_Matrix> bicgstab(const math::Float_Matrix& A, const 
 	while (math::get_matrix_norm(*r) > 0.01)
 	{
 		float alpha = math::multiply(*r, *r0_st)->m_data[0] / math::multiply(*math::multiply(A, *p), *r0_st)->m_data[0];
-		int b = 1;
+		auto s = math::subtract(*r, *math::multiply(*math::scalar_multiply(A, alpha), *p));
+		float w = math::multiply(*math::multiply(A, *s), *math::copy_transpose(*s))->m_data[0];
+		int b = 0;
 	}
 
 	return x;

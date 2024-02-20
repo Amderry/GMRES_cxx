@@ -6,7 +6,7 @@ namespace math
 	{
 		for (int i = 0; i < mat.m; ++i)
 		{
-			for (int j = 0; j < mat.n; ++j)
+			for (int j = i + 1; j < mat.n; ++j)
 			{
 				float tmp = mat.m_data[j * mat.m + i];
 				mat.m_data[j * mat.m + i] = mat.m_data[i * mat.m + j];
@@ -22,7 +22,7 @@ namespace math
 	{
 		for (int i = 0; i < mat.m; ++i)
 		{
-			for (int j = 0; j < mat.n; ++j)
+			for (int j = i + 1; j < mat.n; ++j)
 			{
 				float tmp = mat.m_data[j * mat.m + i];
 				mat.m_data[j * mat.m + i] = mat.m_data[i * mat.m + j];
@@ -39,7 +39,7 @@ namespace math
 
 		for (int i = 0; i < res->m; ++i)
 		{
-			for (int j = 0; j < res->n; ++j)
+			for (int j = i + 1; j < res->n; ++j)
 			{
 				float tmp = res->m_data[j * res->m + i];
 				res->m_data[j * res->m + i] = res->m_data[i * res->m + j];
@@ -59,7 +59,7 @@ namespace math
 
 		for (int i = 0; i < res->m; ++i)
 		{
-			for (int j = 0; j < res->n; ++j)
+			for (int j = i + 1; j < res->n; ++j)
 			{
 				float tmp = res->m_data[j * res->m + i];
 				res->m_data[j * res->m + i] = res->m_data[i * res->m + j];

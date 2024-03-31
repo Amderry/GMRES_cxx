@@ -5,11 +5,11 @@ set(CMAKE_CXX_STANDARD 20)
 
 project(${PROJECT_NAME})
 
-add_subdirectory(external/openblas)
-add_subdirectory(core)
+add_subdirectory(external/eigen)
 
-add_executable(${PROJECT_NAME} core/src/main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE CR_core)
+add_executable(${PROJECT_NAME} src/main.cpp)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ./external/eigen/)
 
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
